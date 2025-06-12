@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: jeecg-system
+  profiles:
+    active: '@profile.name@'
+
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    database: 0
+    jedis:
+      pool:
+        max-idle: 10
+        min-idle: 2
+        max-wait: 2000
+
+myconfig:
+  #限制一天登录失败的次数，超过该次数，账户锁开启
+  failure-count: 3
+  #限制一天成功登录的次数，超过该次数，账户锁开启
+  success-count: 3
+  #选择 login接口采用哪种模式，选择登录模式 1.MySQL、2.Redis Hash、3.Redis KEY VALUE，只能从1、2、3中选一个。
+  login-model: 3
+
+
+
